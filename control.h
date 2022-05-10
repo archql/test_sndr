@@ -52,7 +52,7 @@ private:
     const QString _brackets = "()";
 
     QMap<QChar, int> _prstack = {
-        {0 , 8},
+        {QChar(0) , 8},
         {'+' , 2},
         {'-' , 2},
         {'*' , 4},
@@ -67,7 +67,7 @@ private:
         {'!' , 7}
     };
     QMap<QChar, int> _prrel = {
-        {0 , 7},
+        {QChar(0) , 7},
         {'+' , 1},
         {'-' , 1},
         {'*' , 3},

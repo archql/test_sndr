@@ -1,4 +1,4 @@
-import QtQuick 2.12
+import QtQuick
 import QtQuick.Controls 2.5
 import QtQuick.Window 2.12
 import QtQuick.Layouts 1.2
@@ -58,7 +58,7 @@ Window {
                 id: input_expr
                 placeholderText: "Ex: T^2+2"
                 text: ""
-                validator: RegExpValidator { regExp: /[0-9A-Za-z\%\-\+\*\^\(\)\/\!]+/ }
+                validator: RegularExpressionValidator { regularExpression: /[0-9A-Za-z\%\-\+\*\^\(\)\/\!]+/ }
             }
         }
         RowLayout {

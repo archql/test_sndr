@@ -122,7 +122,7 @@ int control::get_expr_range(const QString &expr)
 
 inline QChar control::ascii_filter(const QChar &a)
 {
-    return a > 0xFF ? 0 : a;
+    return a > QChar(0xFF) ? QChar(0) : a;
 }
 
 bool control::parse_expr(QString &expr)
@@ -148,7 +148,7 @@ bool control::parse_expr(QString &expr)
             _temp_val_arr.append(temp_num.toInt());
             temp_num.clear();
             expr.remove(j - len, len);
-            expr[j - len - 1] = i;
+            expr[j - len - 1] = QChar(i);
 
             // reset ctrs
             j -= len + 1;
@@ -201,7 +201,7 @@ qint64 control::cnt_expr()
             //qInfo() << " x " << y << " " << it << " y " << x << " = " << _sign_action[it](x, y);
             tmp_stack.push(_sign_action[it](x, y));
         }
-        else if (it > 0xFF) // reserved for variables arr
+        else if (it > QChar(0xFF)) // reserved for variables arr
         {
             tmp_stack.push(_temp_val_arr[it.unicode() - 0x0100]);
         }
